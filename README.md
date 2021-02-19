@@ -25,7 +25,7 @@ Journey :
     
     
 **2) Data Preprocessing :** 
-        The major thing in this project is "Dat daa Preprocessing " only ,because there are all columns of categorical-type and some are string but actually they are "Date" columns .
+        The major thing in this project is "Data Preprocessing "  ,because there are all columns(except- Price) of categorical-type and some are string but actually they are "Date" type columns .
         
         a)Date_of_Journey is a object data type, Therefore, we have to convert this datatype into timestamp so as to use this column properly for prediction. we use datetime and fetch day and month and made two seperate columns named as "Journey_day" and "Journey_month" and deleted "Date of journey" column.
         

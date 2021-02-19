@@ -27,23 +27,45 @@ Journey :
 **2) Data Preprocessing :** 
         The major thing in this project is "Dat daa Preprocessing " only ,because there are all columns of categorical-type and some are string but actually they are "Date" columns .
         
-        a)Date_of_Journey is a object data type, Therefore, we have to convert this datatype into timestamp so as to use this column properly for prediction.
-        we use datetime and fetch day and month and made two seperate columns named as "Journey_day" and "Journey_month" and deleted "Date of journey" column.
+        a)Date_of_Journey is a object data type, Therefore, we have to convert this datatype into timestamp so as to use this column properly for prediction. we use datetime and fetch day and month and made two seperate columns named as "Journey_day" and "Journey_month" and deleted "Date of journey" column.
         
-        b)
+        b) Similar to Date_of_Journey we  extracted values(hour and minutes) from "Dep_Time" using DateTime and made two seperate column names as "Dep_hour" and        "Dep_min" and deleted "Dep_Time" colimn.
+        
+        c) Similar to Date_of_Journey we  extracted values(hour and minutes) from "Arrival_Time" using DateTime and made two seperate column names as "Arrival_hour" and "Arrival_min" and deleted "Arrival_Time" colimn.
+        
+        d) In "Duration" column there are values like: 2hr 50min , 40 min .... So from there values extract hours and minutes seperately and made two columns "Duration_hour" and "Duration_min"  and deleted "Duration" column.
+        
+        e) Then we have Source and Destination two columns . The values(places) have no impact on price ,so used **ONE-HOT-ENCODING** .
+        
+        f) There is one column named as "Airline" . for this used **ONE-HOT-ENCODING** .
+        
+        g) then deleted the "Route" and "Additional_info" columns.(Additional_info" has mostly 80% no-info data) .
+        
+        h) There is  one columns named as  "total_stop". values are : non-stop,1 stop, 2 stop, 3 stops, 4 stops. According to data, which has more number of stops that has more fare(price) . SO used **ORDINAL-ENCODING** . 
+        
+        g) then combine all these data and remove non-required columns .
+        
+        h) now there  is no null values and all data is in integer datatype.
+        
+        i) Now we can build machine learning models .
         
         
 
     
-3) Model building : 
-    a) split the dataset into X(independent features) and y(dependent features) .
-    b) perform train_test_split
-    c) try linear regression , lasso regression, ridge regression, RandomForestRegressor with hyperparameter tuning. 
-    d) obsered that linear regression has highest score and lowest error . so save this model using pickle.
+**3) Model building** : 
 
-4) Model deployment : 
+    a) split the dataset into X(independent features) and y(dependent features) .
+    
+    b) perform train_test_split .
+    
+    c) try linear regression, RandomForestRegressor with hyperparameter tuning. 
+    
+    d) obsered that RandomForestRegressor with some parameters(got from hyperparameter tuning) has highest score and lowest error . so save this model using pickle.
+
+**4) Model deployment** : 
+
     a) using flask framework , we deployed this model on HEROKU platform .
     
-App link : https://ipl-score-prediction-akd-app.herokuapp.com/
+App link :  https://flight-price-predction-ml-app.herokuapp.com/
     
     

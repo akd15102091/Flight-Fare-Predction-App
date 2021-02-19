@@ -18,17 +18,22 @@ Some Glimpses of Application :
 
 Journey : 
 
-1) Data Collection :  Data collected from the Kaggle . 
-    about data : Data COlumns are : mid(match number) ,date, venue, bat_team, bowl_team , batsman, bowler, runs, wickets, overs, run_last_5(runs made in last 5      overs),wickets_last_5(wickets taken in last 5 overs), non_striker and total score of that match .
+**1) Data Collection** :  Data collected from the Kaggle . 
+    **about data** : Data Columns are : Airline ,Date_of_journey, Source, Destination, Route , Dep_Time, Arrival_Time, Duration, Total_Stop, Additional_info,Price . 
     
-    As a data scientist, we will predict the total predicted score for first inning when user give some input .(input : select teams for batting and bowling and current runs , wickets and overs  and runs & wickets in last 5 overs .)
+    As a data scientist, we will predict the total predicted Fare for flight when user give some input .(input : Departure_Date, Arrival_Date, Source, Destination, number_of_stops and airline_type .)
     
-    Assumption : all batsman and bowlers have same capability and  there is no effect of venue)
     
-2) Data Preprocessing : 
-    first of all , deleted all unused columns(mid,date,venue,batsman ,bowler) from dataset. and cleaned from null values.
-    
-    then I used one-hot-encoding for "bat_team" and "bowl_team" columns.
+**2) Data Preprocessing :** 
+        The major thing in this project is "Dat daa Preprocessing " only ,because there are all columns of categorical-type and some are string but actually they are "Date" columns .
+        
+        a)Date_of_Journey is a object data type, Therefore, we have to convert this datatype into timestamp so as to use this column properly for prediction.
+        we use datetime and fetch day and month and made two seperate columns named as "Journey_day" and "Journey_month" and deleted "Date of journey" column.
+        
+        b)
+        
+        
+
     
 3) Model building : 
     a) split the dataset into X(independent features) and y(dependent features) .
